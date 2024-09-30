@@ -1,5 +1,7 @@
 ## Welcome to the world of High-Performance Computing
 
+# Hello World
+
 Let's login to the Quartz supercomputing cluster at IU using our shiny new accounts:
 
 ```bash
@@ -41,7 +43,7 @@ cd ob_genome
 
 ls -lh
 ```
-
+# SLURM it up
 <b>IMPORTANT: PLEASE NOTE- because this is a shared directory, please be very careful about deleting or moving files, especially in the parent directory "moczek_cisreg". It would be very unfun to lose files assoacted with other projects!</b>
 
 
