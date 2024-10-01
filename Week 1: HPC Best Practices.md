@@ -68,3 +68,71 @@ There are two primary ways to run a job on the cluster:
 
 For this project, we will primarily execute batch jobs. **IMPORTANT:** any sort of bioinformatic analyses beyond simple file manipulations, moving, copying, etc... should be conducted as a batch job or interactive job. By default, when you log into Quartz, you are logged into the "login node", in our case denoted by `hX` (see left side of terminal. Computational resources on the login node are limited and analyses should not be conducted here. 
 
+Lets look into how to submit `batch` jobs now. First, lets navigate to our scripts folder where a couple of sample scripts are present. Lets preview the `sample.bash`, which you may use as a template for creating other bash scripts to submit your own jobs. 
+
+```bash
+cd ./scripts
+cat sample.bash
+```
+Which should give you the following on your screen:
+
+```bash
+#!/usr/bin/env bash
+#SBATCH -J job_name
+#SBATCH --mail-type=END
+#SBATCH --mail-user=youremail@iu.edu
+#SBATCH -c x
+#SBATCH --mem xG
+#SBATCH --time=24:00:00
+#SBATCH -A r00262
+
+Your-commands-here...
+...and here...
+```
+
+From top-to-bottom, these lines indicate: 
+1) you are using `bash` scripting. Personally I've never had to change this, but must be included
+2) name of your job, which will appear in the queue (recommended)
+3) indicate whether to be emailed when the job finishes (optional)
+4) your email
+5) number of cores to use in the job (recommended)
+6) amount of RAM to dedicate to job (recommended)
+7) amount of time to dedicate to job (required, maximum of 4 days by default)
+8) the RT project associated with the analysis, in our case never changes (required)
+
+There are many, mnay other options that are possible (e.g. see https://slurm.schedmd.com/sbatch.html). However, these core parameters will be all you need a lot of the time. 
+
+To submit a `batch` job, the command is simply:
+
+```bash
+sbatch your_job.bash
+```
+
+When it is submitted successfully, the job is assigned a job_ID (see `squeue`). To cancel the job:
+
+```bash
+scancel [job_id]
+```
+
+You can also use the sacct command to print useful information about a run (see https://slurm.schedmd.com/sacct.html for extensive options). For example, this command would print the maximum amount of RAM used in the job and the time elapsed during the run:
+
+```bash
+sacct -j [job_ID] --format="MaxRSS,Elapsed"
+```
+So, if I wanted to run a job in my own directory within our project, a sample command would be:
+
+```bash
+cp sample.bash ../u_pd/job1.bash
+cd ../u_pd
+nano job1.bash
+```
+_...edit your job via `nano`..._
+
+Then submit:
+
+```bash
+sbatch job1.bash
+```
+
+
+
