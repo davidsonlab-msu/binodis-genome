@@ -134,5 +134,43 @@ Then submit:
 sbatch job1.bash
 ```
 
+For the vast majority of your analyses, the `sample.bash` template will fulfill our needs, as a single batch job is most effective for carrying our a single command or series of inter-dependent commands. However, there are cases in which you may have hundreds of independent jobs to run. While submitting hundreds of individual batch jobs is certainly possible, _arrays_ make this task much easier. The `sample_array.bash` script provides a template for submitting these kinds of jobs, wherein you provide a single text file of commands (in the case of the sample, `list_of_jobs.txt`) and ask SLURM to run X amount of jobs, Y jobs at a time. 
+
+If you need to troubleshoot or want to run some analyses on the fly, `interactive` jobs are your best bet. To start an interactive session, a sample command would be:
+
+```bash
+srun -p interactive --time=hr:min:sec -A r00262 -c [num_cores] --mem [amount of RAM]G --pty /bin/bash
+```
+
+To end the interactive session, type:
+```bash
+exit
+```
+
+Lastly, Quartz comes pre-installed with a number of popular bioinformatic programs that makes running analyses very convenient (sometimes...). To view these programs available for loading, type:
+
+```bash
+module avail
+```
+
+To view which modules are currently loaded in your session, type:
+
+```bash
+module list
+```
+
+To load a module so that you may use that program, type:
+
+```bash
+module load name-of-program
+#e.g.
+module load bowtie
+```
+
+We will utilize modules extensively in the coming weeks but for now we just need to know they exist. 
+
+## Our first job -- assemble genome contigs
+
+
 
 
