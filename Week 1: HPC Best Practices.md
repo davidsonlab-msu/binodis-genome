@@ -171,6 +171,76 @@ We will utilize modules extensively in the coming weeks but for now we just need
 
 ## Our first job -- assemble genome contigs
 
+For today, we will simply submit our job before concluding, let it run while away, and then analyze the results at our next meeting. At this stage, we have isolated tissue from a male and female _O. binodis_ individuals and sequenced the DNA using PacBio HiFi technology at UC Davis. These reads are located in the `data` directory of our shared `ob_genome` project directory. Lets go to this directory and make sure our sequencing reads are there.
+
+```bash
+cd /N/project/moczek_cisreg/ob_genome/data
+ls -lh
+```
+
+We should see two gzipped files:
+
+```
+m84066_240906_041456_s1.OB-F4.15_15.fasta.gz
+m84066_240906_041456_s1.OB-M4.14_14.fasta.gz
+```
+These are our coveted sequencing reads! The F4 indicates the female sample and the M4 are the male reads. Now lets navigate to our individual user directories and prepare to submit our genome assembly job by copying a template bash script into our directory.
+
+```bash
+cd ../u_pd
+cp ../scripts/sample.bash ./hifiasm.bash
+```
+
+To perform the genome assembly, we will be using `hifiasm` (https://www.nature.com/articles/s41592-020-01056-5), an extremely popular method for de-novo genome assembly with PacBio HiFi reads. Next week I will explain PacBio sequencing and genome assembly, but for today, lets simply get the run going as it will take some time to complete. Now lets edit our `hifiasm.bash` script to fir our analysis using `nano`. 
+
+First type:
+```bash
+nano hifiasm.bash
+```
+
+A new window will appear, and you can now edit the file. Edit the file so that it reads as one of the below. Lets have half of the group assemble the female genome and half assemble the male.
+
+Female:
+```
+#!/usr/bin/env bash
+#SBATCH -J hifiasm
+#SBATCH --mail-type=END
+#SBATCH --mail-user=your-email@iu.edu
+#SBATCH -c 8
+#SBATCH --mem 90G
+#SBATCH --time=95:00:00
+#SBATCH -A r00262
+
+/N/slate/phidavid/programs/hifiasm/hifiasm -o obin_f -t8 ../data/m84066_240906_041456_s1.OB-F4.15_15.fasta
+
+```
+
+Male:
+```
+#!/usr/bin/env bash
+#SBATCH -J hifiasm
+#SBATCH --mail-type=END
+#SBATCH --mail-user=your-email@iu.edu
+#SBATCH -c 8
+#SBATCH --mem 90G
+#SBATCH --time=95:00:00
+#SBATCH -A r00262
+
+/N/slate/phidavid/programs/hifiasm/hifiasm -o obin_m -t8 ../data/m84066_240906_041456_s1.OB-M4.14_14.fasta
+```
+
+Once you have entered all of this information, press `Ctrl+O`, `Enter`, `Ctrl+X` which will ask the save, confirm the save, and exit your editing screen.
+
+After you have finished your batch script, lets submit! 
+
+```bash
+sbatch hifiasm.bash
+``` 
+
+And finish by checking that the job is in the queue
+
+```bash
+squeue -u [iu-username]
 
 
 
