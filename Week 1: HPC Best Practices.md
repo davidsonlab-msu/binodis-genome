@@ -211,7 +211,7 @@ Female:
 #SBATCH --time=95:00:00
 #SBATCH -A r00262
 
-/N/slate/phidavid/programs/hifiasm/hifiasm -o obin_f -t8 ../data/m84066_240906_041456_s1.OB-F4.15_15.fasta
+/N/project/moczek_cisreg/programs/hifiasm/hifiasm -o obin_f -t8 ../data/m84066_240906_041456_s1.OB-F4.15_15.fasta
 
 ```
 
@@ -226,7 +226,7 @@ Male:
 #SBATCH --time=95:00:00
 #SBATCH -A r00262
 
-/N/slate/phidavid/programs/hifiasm/hifiasm -o obin_m -t8 ../data/m84066_240906_041456_s1.OB-M4.14_14.fasta
+/N/project/moczek_cisreg/programs/hifiasm/hifiasm  -o obin_m -t8 ../data/m84066_240906_041456_s1.OB-M4.14_14.fasta
 ```
 
 Once you have entered all of this information, press `Ctrl+O`, `Enter`, `Ctrl+X` which will ask the save, confirm the save, and exit your editing screen.
@@ -241,6 +241,5 @@ And finish by checking that the job is in the queue
 
 ```bash
 squeue -u [iu-username]
-
-
+```
 
