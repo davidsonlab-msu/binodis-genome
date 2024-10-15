@@ -76,6 +76,8 @@ awk '/^S/{print ">"$2;print $3}' ./obin_f.bp.p_ctg.gfa > ./obin_f.fasta
 head obin_f.fasta
 ```
 
+##Basic Genome Structure
+
 Wonderful, we now have a genome assembly for a male and female individual. Lets check out the structure of the genome to get an idea of how well it performed. 
 
 To do this, we first need to open an interactive job. This may take a few minutes depending on available resources. Here we are only asking for 1 core, 1Gb of RAM, and 1hr of time:
@@ -156,9 +158,88 @@ head length.hist
 
 In a later week we can do an introduction to R if that would be helpful to folks, but for the sake of simplicity, lets open the file in Excel and plot. 
 
+<img width="781" alt="Screenshot 2024-10-15 at 12 56 45 PM" src="https://github.com/user-attachments/assets/def93716-741c-4308-9c23-fa16af2f1200">
 
+As we can see, most of the genome assembly is contained in the larget 20 contigs! That is good!
 
+For reference, here is what the old Otau2.0 genome scaffold length distribution looks like (not so good! -- note the x-axis scaffold number): 
 
+<img width="612" alt="Screenshot 2024-10-15 at 1 06 48 PM" src="https://github.com/user-attachments/assets/b37a4a0b-2d41-4573-ae4c-794fdfbafcaf">
+
+##BUSCO
+
+To end today, lets examine our the results of a BUSCO analysis to assess gene content completeness. Because I was unsure if conda envs would be up and running yet, I went ahead and ran BUSCO on male and female genome assemblies but I will review the commands I used here:
+
+```bash
+cat /N/project/moczek_cisreg/obin/scripts/busco_obf_insect.bash
+```
+```
+#!/usr/bin/env bash
+#SBATCH -J busco
+#SBATCH --mail-type=END
+#SBATCH --mail-user=phidavid@iu.edu
+#SBATCH -c 8 
+#SBATCH --mem-per-cpu=2g
+#SBATCH --time=24:00:00
+#SBATCH -A r00262
+
+module load anaconda
+source activate /N/slate/phidavid/conda_envs/busco/
+
+busco -i ./obin_female.fasta -m genome  -c 8 --augustus --out ./busco_female -f -l insecta_odb10
+```
+Which gave the output for the female assembly:
+```
+2024-09-12 11:09:41 INFO:	
+
+	-----------------------------------------------
+	|Results from dataset insecta_odb10           |
+	-----------------------------------------------
+	|C:99.2%[S:98.8%,D:0.4%],F:0.5%,M:0.3%,n:1367 |
+	|1355	Complete BUSCOs (C)                   |
+	|1350	Complete and single-copy BUSCOs (S)   |
+	|5	Complete and duplicated BUSCOs (D)        |
+	|7	Fragmented BUSCOs (F)                     |
+	|5	Missing BUSCOs (M)                        |
+	|1367	Total BUSCO groups searched           |
+	-----------------------------------------------
+```
+
+Very good! Even exceeds completion of the other 3 dung beetle genomes. Furthermore, duplication is very low (0.4%) indicating a single haplotype is represented within the assembly, which is standard for reference genomes. 
+
+The male results are:
+```
+	-----------------------------------------------
+	|Results from dataset insecta_odb10            |
+	-----------------------------------------------
+	|C:99.2%[S:93.1%,D:6.1%],F:0.4%,M:0.4%,n:1367 |
+	|1356	Complete BUSCOs (C)                   |
+	|1273	Complete and single-copy BUSCOs (S)   |
+	|83	Complete and duplicated BUSCOs (D)        |
+	|6	Fragmented BUSCOs (F)                     |
+	|5	Missing BUSCOs (M)                        |
+	|1367	Total BUSCO groups searched           |
+	-----------------------------------------------
+```
+Ooooo... Overall completion is good but there is suome significant dupliaction (6.1%). Any ideas how to fix this?
+
+Lets check out the hifiasm program again and see if there are any pramters we can tweak. Examine it yourself with this command and let me know which parameter may work to solve this issue. 
+
+```bash
+/N/project/moczek_cisreg/programs/hifiasm/hifiasm
+```
+
+Phil will show you what paramters were tweaked abd place the new and improved male assembly in the `data` directory of our project folder. [On board demonstration of duplication repair]
+
+## Conda Test
+
+With our interactive node open, can we all please try:
+
+```bash
+module load miniconda
+source activate /N/project/moczek_cisreg/programs/conda_envs/bbmap/
+stats.sh
+```
 
 
 
