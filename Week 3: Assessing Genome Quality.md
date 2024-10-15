@@ -99,7 +99,66 @@ At a minimum we need to supply the fasta file to the `in=` parameter. Lets also 
 ../../programs/bbmap/stats.sh -Xmx1g in=obin_f.fasta gchist=gc.hist shist=length.hist n90=t
 ```
 
+Output for a female genome may look like this:
+```
+A	C	G	T	N	IUPAC	Other	GC	GC_stdev
+0.3288	0.1720	0.1726	0.3267	0.0000	0.0000	0.0000	0.3446	0.0906
+
+Main genome scaffold total:         	195
+Main genome contig total:           	195
+Main genome scaffold sequence total:	956.223 MB
+Main genome contig sequence total:  	956.223 MB  	0.000% gap
+Main genome scaffold N/L50:         	6/63.576 MB
+Main genome contig N/L50:           	6/63.576 MB
+Main genome scaffold N/L90:         	19/4.089 MB
+Main genome contig N/L90:           	19/4.089 MB
+Max scaffold length:                	120.335 MB
+Max contig length:                  	120.335 MB
+Number of scaffolds > 50 KB:        	154
+% main genome in scaffolds > 50 KB: 	99.85%
+
+
+Minimum 	Number        	Number        	Total         	Total         	Scaffold
+Scaffold	of            	of            	Scaffold      	Contig        	Contig  
+Length  	Scaffolds     	Contigs       	Length        	Length        	Coverage
+--------	--------------	--------------	--------------	--------------	--------
+    All 	           195	           195	   956,223,404	   956,223,404	 100.00%
+  10 KB 	           195	           195	   956,223,404	   956,223,404	 100.00%
+  25 KB 	           191	           191	   956,145,277	   956,145,277	 100.00%
+  50 KB 	           154	           154	   954,746,802	   954,746,802	 100.00%
+ 100 KB 	           105	           105	   951,502,570	   951,502,570	 100.00%
+ 250 KB 	            84	            84	   948,213,287	   948,213,287	 100.00%
+ 500 KB 	            70	            70	   943,173,062	   943,173,062	 100.00%
+   1 MB 	            54	            54	   931,368,074	   931,368,074	 100.00%
+ 2.5 MB 	            29	            29	   891,520,168	   891,520,168	 100.00%
+   5 MB 	            16	            16	   848,252,150	   848,252,150	 100.00%
+  10 MB 	            14	            14	   831,031,856	   831,031,856	 100.00%
+  25 MB 	            12	            12	   796,827,761	   796,827,761	 100.00%
+  50 MB 	             8	             8	   621,680,865	   621,680,865	 100.00%
+ 100 MB 	             1	             1	   120,335,419	   120,335,419	 100.00%
+```
+
 This is a really nice assembly! Not quite chromosome resolved, but close. This is perhaps to be expected given the genome size of _O. binodis_ has turned out to be much larger than we initially anticipated (close to 1Gb versus 0.3Gb for the other species). 
+
+Let's now download the Scaffold Length histogram to our laptop and visualize the results in Excel. First, open a new Terminal Window, and navigate to your Desktop (or wherever you would like to download the file to):
+
+```bash
+cd ~/Desktop
+```
+
+Now lets download the `length.hist` file from Quartz and preview its contents:
+
+```bash
+scp [YOUR IU USERNAME]@quartz.uits.iu.edu:/N/project/moczek_cisreg/ob_genome/u_[INITIALS]/length.hist .
+
+head length.hist
+```
+
+In a later week we can do an introduction to R if that would be helpful to folks, but for the sake of simplicity, lets open the file in Excel and plot. 
+
+
+
+
 
 
 
