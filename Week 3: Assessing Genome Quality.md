@@ -221,15 +221,15 @@ The male results are:
 	|1367	Total BUSCO groups searched           |
 	-----------------------------------------------
 ```
-Ooooo... Overall completion is good but there is suome significant dupliaction (6.1%). Any ideas how to fix this?
+Ooooo... Overall completion is good but there is some significant duplication (6.1%). Any ideas how to fix this?
 
-Lets check out the hifiasm program again and see if there are any pramters we can tweak. Examine it yourself with this command and let me know which parameter may work to solve this issue. 
+Lets check out the hifiasm program again and see if there are any paramters we can tweak. Examine it yourself with this command and let me know which parameter may work to solve this issue. 
 
 ```bash
 /N/project/moczek_cisreg/programs/hifiasm/hifiasm
 ```
 
-Phil will show you what paramters were tweaked abd place the new and improved male assembly in the `data` directory of our project folder. [On board demonstration of duplication repair]
+Phil will show you what parameters were tweaked and place the new and improved male assembly in the `data` directory of our project folder. [On board demonstration of duplication repair]
 
 ## Conda Test
 
