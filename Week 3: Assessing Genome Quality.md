@@ -56,4 +56,61 @@ Now for the remaining files (from the hifiasm documentation: https://hifiasm.rea
 `prefix.*hap*.p_ctg.gfa`: phased contig graph. This graph keeps the phased contigs.
 ```
 
+Great! It looks like our run was a success. Let's discuss what these different file types mean.
+
+The file of most interest to us is the `obin_f.bp.p_ctg.gfa` file, as this file contains the primary or main contigs created by the program. For the sake of this project we will not pay attention to the different haplotypes for now.
+
+However, we can see that the results are in a the format "gfa", which is convenient for quickly examining contig names, but not ideal for bioinformatic analyses. Let's check it out:
+
+```bash
+head obin_f.bp.p_ctg.gfa
+
+Ctrl+X
+```
+
+A conventional format is fasta. Lets convert the GFA to FASTA using the following `awk` code ad preview its contents: 
+
+```bash
+awk '/^S/{print ">"$2;print $3}' ./obin_f.bp.p_ctg.gfa > ./obin_f.fasta
+
+head obin_f.fasta
+```
+
+Wonderful, we now have a genome assembly for a male and female individual. Lets check out the structure of the genome to get an idea of how well it performed. 
+
+To do this, we first need to open an interactive job. This may take a few minutes depending on available resources. Here we are only asking for 1 core, 1Gb of RAM, and 1hr of time:
+
+```bash
+srun -p interactive --pty -c 1 --mem 1G --time=1:00:00 -A r00262 /bin/bash
+```
+
+Once that completes, we would like to run the `stats.sh` script of the `bbmap` program. It can be found in our shared `programs` directory of the `moczek_cisreg` parent folder. 
+First lets just see what the script can do. We also need to load java to run the program. 
+
+```bash
+module load java
+
+../../programs/bbmap/stats.sh
+```
+
+At a minimum we need to supply the fasta file to the `in=` parameter. Lets also ask bbmap to print a GC histogram, scaffold length histogram, and the n90 statistics. Lastly, we need to specify the maximum amount of RAM for the program to run with the `-Xmx` parameter.
+
+```bash
+../../programs/bbmap/stats.sh -Xmx1g in=obin_f.fasta gchist=gc.hist shist=length.hist n90=t
+```
+
+This is a really nice assembly! Not quite chromosome resolved, but close. This is perhaps to be expected given the genome size of _O. binodis_ has turned out to be much larger than we initially anticipated (close to 1Gb versus 0.3Gb for the other species). 
+
+
+
+
+
+
+
+
+
+
+
+
+
 
