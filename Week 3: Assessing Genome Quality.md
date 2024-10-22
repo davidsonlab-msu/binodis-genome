@@ -76,7 +76,7 @@ awk '/^S/{print ">"$2;print $3}' ./obin_f.bp.p_ctg.gfa > ./obin_f.fasta
 head obin_f.fasta
 ```
 
-##Basic Genome Structure
+## Basic Genome Structure
 
 Wonderful, we now have a genome assembly for a male and female individual. Lets check out the structure of the genome to get an idea of how well it performed. 
 
@@ -166,7 +166,7 @@ For reference, here is what the old Otau2.0 genome scaffold length distribution 
 
 <img width="612" alt="Screenshot 2024-10-15 at 1 06 48 PM" src="https://github.com/user-attachments/assets/b37a4a0b-2d41-4573-ae4c-794fdfbafcaf">
 
-##BUSCO
+## BUSCO
 
 To end today, lets examine our the results of a BUSCO analysis to assess gene content completeness. Because I was unsure if conda envs would be up and running yet, I went ahead and ran BUSCO on male and female genome assemblies but I will review the commands I used here:
 
