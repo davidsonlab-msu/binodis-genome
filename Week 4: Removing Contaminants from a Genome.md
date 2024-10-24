@@ -48,6 +48,28 @@ scp phidavid@quartz.uits.iu.edu:/N/project/moczek_cisreg/ob_genome/data/obf_v1.f
 ```
 
 
+# Tidying up the cleaned genome assembly
+
+Now that we have removed contaminants from the genome assembly, we are left with a "cleaned" fasta file that should exclude non-metazoan contigs. Let's check to make sure these new assemblies are located in the `data` directory of our project folder, and copy each cleaned genome file into our respective user directories.
+
+```bash
+cd /N/project/moczek_cisreg/ob_genome/data/
+ls -lh
+cp ./*clean.fasta ../u_[INITIALS]/
+```
+
+Let's navigate to our respective user directories so that we can tidy up our genome assemblies before annotating, and then start an interactive node:
+
+```bash
+cd ../u_[INITIALS]/
+ls -lh
+srun -p interactive --pty -c 1 --mem 2G --time=1:00:00 -A r00262 /bin/bash
+```
+
+First, lets sort our genome assemblies by contig size, such that the largest contig appears first in the assembly and continues in descending size. To do this, lets use the `bbmap` package again, which is located in the programs folder:
+
+```bash
+/N/project/moczek_cisreg/programs/bbmap/
 
 
 
