@@ -44,7 +44,7 @@ Lets open a _separate_ terminal window on our laptops, navigate to our Desktop (
 
 ```bash
 scp [IU_USERNAME]@quartz.uits.iu.edu:/N/project/moczek_cisreg/ob_genome/data/obm_v1.fasta .
-scp phidavid@quartz.uits.iu.edu:/N/project/moczek_cisreg/ob_genome/data/obf_v1.fasta .
+scp [IU_USERNAME]@quartz.uits.iu.edu:/N/project/moczek_cisreg/ob_genome/data/obf_v1.fasta .
 ```
 
 
@@ -66,11 +66,11 @@ ls -lh
 srun -p interactive --pty -c 1 --mem 2G --time=1:00:00 -A r00262 /bin/bash
 ```
 
-First, lets sort our genome assemblies by contig size, such that the largest contig appears first in the assembly and continues in descending size. To do this, lets use the `bbmap` package again, which is located in the programs folder:
+First, lets sort our genome assemblies by contig size, such that the largest contig appears first in the assembly and continues in descending size. To do this, lets use the `seqkit` package, which is located in the programs folder:
 
 ```bash
-/N/project/moczek_cisreg/programs/bbmap/sortbyname.sh -Xmx1g in=obm_clean.fasta out=obm_clean_sort.fasta length descending
-/N/project/moczek_cisreg/programs/bbmap/sortbyname.sh -Xmx1g in=obf_clean.fasta out=obf_clean_sort.fasta length descending
+../../programs/seqkit sort -lr obf_clean.fasta > obf_clean_sort.fasta 
+../../programs/seqkit sort -lr obm_clean.fasta > obm_clean_sort.fasta 
 ```
 
 We now have a genome file whose contigs are sorted by size, however, the contig names are not named very nicely at the moment:
@@ -82,12 +82,23 @@ grep "^>" obf_clean_sort.fasta | head
 prints:
 
 ```
->ptg000001l
->ptg000002l
->ptg000003l
->ptg000004l
+>ptg000009l
 >ptg000005l
+>ptg000002l
 >ptg000006l
+>ptg000004l
+>ptg000007l
+>ptg000010l
+>ptg000008l
+>ptg000014l
+>ptg000013l
+```
+
+```bash
+../../programs/seqtk/seqtk rename obf_clean_sort.fasta contig_ > obf_v1_2.fasta
+../../programs/seqtk/seqtk rename obm_clean_sort.fasta contig_ > obm_v1_2.fasta
+
+grep "^>" obf_clean_sort.fasta | head
 ```
 
 
