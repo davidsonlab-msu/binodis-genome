@@ -1,0 +1,213 @@
+##[["FCS genome report", 2, 1], {"git-rev": "v0.5.4-5-g5dfd516", "run-date": "Thu Oct 24 15:34:01 2024", "db": {"build-date": "2023-01-24", "seqs": 3025824, "Gbp": 709.264}, "run-info": {"agg-cvg": 0.273788, "asserted-div": "anml:insects", "inferred-primary-divs": ["anml:insects"], "corrected-primary-divs": ["anml:insects"], "species": "Onthophagus binodis", "genome-hash": "b8dd53a4ef8ac208"}}]
+#seq_id	start_pos	end_pos	seq_len	action	div	agg_cont_cov	top_tax_name
+ptg000012l	1	41962	41962	EXCLUDE	prok:a-proteobacteria	84	Amaricoccus macauensis
+ptg000013c	1	5078201	5078201	EXCLUDE	prok:g-proteobacteria	97	Enterobacter quasimori
+ptg000014c	1	2227766	2227766	EXCLUDE	prok:a-proteobacteria	93	[Ochrobactrum] soli
+ptg000019l	1	4751215	4751215	EXCLUDE	prok:CFB group bacteria	86	Dysgonomonas alginatilytica
+ptg000022c	1	2809562	2809562	EXCLUDE	prok:CFB group bacteria	88	Moheibacter lacus
+ptg000024c	1	5028335	5028335	EXCLUDE	prok:b-proteobacteria	96	Comamonas koreensis
+ptg000028l	1	77969	77969	EXCLUDE	prok:CFB group bacteria	90	Niabella yanshanensis
+ptg000034l	1	428670	428670	EXCLUDE	prok:firmicutes	90	Enterococcus thailandicus
+ptg000037l	1	1182364	1182364	EXCLUDE	prok:a-proteobacteria	88	Brucella cytisi
+ptg000039l	1	45946	45946	EXCLUDE	prok:CFB group bacteria	58	Empedobacter sp. UBA5924
+ptg000040l	1	104676	104676	EXCLUDE	prok:a-proteobacteria	74	Brucella cytisi
+ptg000041c	1	1241267	1241267	EXCLUDE	prok:a-proteobacteria	89	[Ochrobactrum] soli
+ptg000042l	1	93846	93846	EXCLUDE	prok:a-proteobacteria	98	Paracoccus alkenifer
+ptg000044l	1	107903	107903	EXCLUDE	prok:firmicutes	86	Enterococcus thailandicus
+ptg000045l	1	61123	61123	EXCLUDE	prok:a-proteobacteria	89	[Ochrobactrum] soli
+ptg000046l	1	66508	66508	EXCLUDE	prok:a-proteobacteria	91	Paracoccus sphaerophysae
+ptg000048l	1	320107	320107	EXCLUDE	prok:firmicutes	82	Enterococcus thailandicus
+ptg000049l	1	15458	15458	EXCLUDE	prok:CFB group bacteria	100	Niabella yanshanensis
+ptg000050l	1	40973	40973	EXCLUDE	prok:firmicutes	72	Enterococcus pallens
+ptg000051l	1	209749	209749	EXCLUDE	prok:firmicutes	85	Enterococcus thailandicus
+ptg000053l	1	32397	32397	EXCLUDE	prok:CFB group bacteria	85	Niabella yanshanensis
+ptg000054l	1	53493	53493	EXCLUDE	prok:a-proteobacteria	100	Brucella haematophila
+ptg000055l	1	33103	33103	EXCLUDE	prok:CFB group bacteria	89	Niabella hibiscisoli
+ptg000056l	1	197922	197922	EXCLUDE	prok:firmicutes	88	Enterococcus thailandicus
+ptg000059l	1	30238	30238	EXCLUDE	prok:CFB group bacteria	95	Dyadobacter luticola
+ptg000060l	1	47597	47597	EXCLUDE	prok:CFB group bacteria	100	Dyadobacter luticola
+ptg000061l	1	1676392	1676392	EXCLUDE	prok:g-proteobacteria	93	Luteimonas marina
+ptg000062l	1	66520	66520	EXCLUDE	prok:g-proteobacteria	60	Serratia liquefaciens
+ptg000063l	1	104212	104212	EXCLUDE	prok:a-proteobacteria	97	Paracoccus sanguinis
+ptg000064l	1	24826	24826	EXCLUDE	prok:CFB group bacteria	86	Terrimonas ferruginea
+ptg000065l	1	248802	248802	EXCLUDE	prok:firmicutes	94	Enterococcus villorum
+ptg000066l	1	24162	24162	EXCLUDE	prok:CFB group bacteria	56	Flavobacterium viscosum
+ptg000069l	1	85106	85106	EXCLUDE	prok:a-proteobacteria	88	[Ochrobactrum] quorumnocens
+ptg000070l	1	172382	172382	EXCLUDE	prok:a-proteobacteria	82	Brucella haematophila
+ptg000071l	1	2126736	2126736	EXCLUDE	prok:g-proteobacteria	90	Luteimonas marina
+ptg000072l	1	41156	41156	EXCLUDE	prok:a-proteobacteria	94	Brucella anthropi
+ptg000073l	1	65957	65957	EXCLUDE	prok:a-proteobacteria	96	Paracoccus sphaerophysae
+ptg000076l	1	78517	78517	EXCLUDE	prok:a-proteobacteria	84	Brucella haematophila
+ptg000078l	1	37952	37952	EXCLUDE	prok:a-proteobacteria	94	[Ochrobactrum] soli
+ptg000079l	1	154312	154312	EXCLUDE	prok:a-proteobacteria	87	Neorhizobium petrolearium
+ptg000080l	1	48622	48622	EXCLUDE	prok:CFB group bacteria	96	Moheibacter lacus
+ptg000081l	1	154554	154554	EXCLUDE	prok:a-proteobacteria	91	[Ochrobactrum] quorumnocens
+ptg000083l	1	41819	41819	EXCLUDE	prok:b-proteobacteria	100	Hydrogenophaga palleronii
+ptg000087l	1	250787	250787	EXCLUDE	prok:a-proteobacteria	77	Rhizobium phaseoli
+ptg000088l	1	16101	16101	REVIEW	prok:firmicutes	26	Enterococcus hermanniensis
+ptg000089l	1	50322	50322	EXCLUDE	prok:a-proteobacteria	93	Paramesorhizobium deserti
+ptg000093l	1	91604	91604	EXCLUDE	prok:a-proteobacteria	92	Paracoccus chinensis
+ptg000094l	1	45025	45025	EXCLUDE	prok:a-proteobacteria	96	[Ochrobactrum] soli
+ptg000095l	1	91318	91318	EXCLUDE	prok:a-proteobacteria	78	Alteraurantiacibacter aestuarii
+ptg000096l	1	85411	85411	EXCLUDE	prok:high GC Gram+	92	Leucobacter zeae
+ptg000098l	1	48596	48596	EXCLUDE	prok:high GC Gram+	92	Leucobacter chironomi
+ptg000099l	1	64841	64841	EXCLUDE	prok:a-proteobacteria	95	Brucella haematophila
+ptg000100l	1	188536	188536	EXCLUDE	prok:firmicutes	93	Enterococcus faecium
+ptg000101l	1	127709	127709	EXCLUDE	prok:a-proteobacteria	95	Paracoccus sphaerophysae
+ptg000102l	1	39855	39855	EXCLUDE	prok:a-proteobacteria	97	Paracoccus sphaerophysae
+ptg000103l	1	40457	40457	EXCLUDE	prok:a-proteobacteria	98	Alteraurantiacibacter aquimixticola
+ptg000104l	1	309039	309039	EXCLUDE	prok:a-proteobacteria	98	Paracoccus sphaerophysae
+ptg000105l	1	64166	64166	EXCLUDE	prok:b-proteobacteria	81	Xenophilus azovorans
+ptg000106l	1	64244	64244	EXCLUDE	prok:CFB group bacteria	42	Empedobacter sp. UBA2044
+ptg000107l	1	30495	30495	EXCLUDE	prok:a-proteobacteria	96	[Ochrobactrum] soli
+ptg000108l	1	19597	19597	EXCLUDE	prok:CFB group bacteria	96	Leadbetterella byssophila
+ptg000109l	1	21559	21559	EXCLUDE	prok:firmicutes	59	Enterococcus thailandicus
+ptg000110l	1	80352	80352	EXCLUDE	prok:CFB group bacteria	86	Niabella hibiscisoli
+ptg000111l	1	28920	28920	EXCLUDE	prok:CFB group bacteria	92	Niabella yanshanensis
+ptg000116l	1	69191	69191	EXCLUDE	prok:b-proteobacteria	84	Alicycliphilus sp. UBA7619
+ptg000117l	1	54567	54567	EXCLUDE	prok:g-proteobacteria	89	Chiayiivirga flava
+ptg000118l	1	84471	84471	EXCLUDE	prok:CFB group bacteria	85	Dyadobacter soli
+ptg000120l	1	93529	93529	EXCLUDE	prok:a-proteobacteria	95	[Ochrobactrum] soli
+ptg000121l	1	33677	33677	EXCLUDE	prok:a-proteobacteria	46	Brucella oryzae
+ptg000123l	1	30954	30954	EXCLUDE	prok:a-proteobacteria	97	Brucella anthropi
+ptg000124l	1	30859	30859	EXCLUDE	prok:g-proteobacteria	75	Chiayiivirga flava
+ptg000125l	1	38729	38729	EXCLUDE	prok:CFB group bacteria	76	Moheibacter lacus
+ptg000127l	1	159328	159328	EXCLUDE	prok:a-proteobacteria	93	Paracoccus sphaerophysae
+ptg000137l	1	89880	89880	EXCLUDE	prok:firmicutes	95	Enterococcus thailandicus
+ptg000139l	1	38983	38983	EXCLUDE	prok:CFB group bacteria	98	Dyadobacter luticola
+ptg000140l	1	82905	82905	EXCLUDE	prok:a-proteobacteria	92	Paracoccus sphaerophysae
+ptg000141l	1	84974	84974	EXCLUDE	prok:firmicutes	85	Enterococcus gallinarum
+ptg000142l	1	295807	295807	EXCLUDE	prok:a-proteobacteria	97	Paracoccus sphaerophysae
+ptg000143l	1	52442	52442	EXCLUDE	prok:CFB group bacteria	48	Chitinophaga terrae (ex Kim and Jung 2007)
+ptg000144l	1	125751	125751	EXCLUDE	prok:a-proteobacteria	93	Paracoccus sphaerophysae
+ptg000145l	1	42006	42006	EXCLUDE	prok:CFB group bacteria	96	Niabella yanshanensis
+ptg000146l	1	36277	36277	EXCLUDE	prok:a-proteobacteria	87	[Ochrobactrum] quorumnocens
+ptg000147l	1	79983	79983	EXCLUDE	prok:a-proteobacteria	64	Shinella oryzae
+ptg000148l	1	90265	90265	EXCLUDE	prok:a-proteobacteria	84	[Ochrobactrum] soli
+ptg000151l	1	144695	144695	EXCLUDE	prok:a-proteobacteria	95	Paracoccus sanguinis
+ptg000153l	1	207743	207743	EXCLUDE	prok:a-proteobacteria	98	Paracoccus sphaerophysae
+ptg000154l	1	40811	40811	EXCLUDE	prok:b-proteobacteria	98	Alicycliphilus sp. UBA7619
+ptg000155l	1	74619	74619	EXCLUDE	prok:firmicutes	75	Enterococcus villorum
+ptg000156l	1	225155	225155	EXCLUDE	prok:a-proteobacteria	84	Paracoccus sphaerophysae
+ptg000157l	1	27366	27366	EXCLUDE	prok:CFB group bacteria	96	Moheibacter lacus
+ptg000158l	1	32202	32202	EXCLUDE	prok:CFB group bacteria	98	Moheibacter lacus
+ptg000159l	1	65645	65645	EXCLUDE	prok:g-proteobacteria	95	Chiayiivirga flava
+ptg000160l	1	72853	72853	EXCLUDE	prok:firmicutes	85	Enterococcus faecium
+ptg000161l	1	44606	44606	EXCLUDE	prok:CFB group bacteria	80	Moheibacter lacus
+ptg000162l	1	76668	76668	EXCLUDE	prok:a-proteobacteria	95	Croceibacterium atlanticum
+ptg000163l	1	54496	54496	EXCLUDE	prok:a-proteobacteria	92	Brucella grignonensis
+ptg000164l	1	31516	31516	EXCLUDE	prok:g-proteobacteria	97	Luteimonas viscosa
+ptg000172l	1	40049	40049	EXCLUDE	prok:CFB group bacteria	77	Moheibacter sediminis
+ptg000173l	1	62484	62484	EXCLUDE	prok:CFB group bacteria	87	Moheibacter sediminis
+ptg000207l	1	23022	23022	EXCLUDE	prok:CFB group bacteria	98	Niabella hibiscisoli
+ptg000208l	1	46107	46107	EXCLUDE	prok:a-proteobacteria	92	Croceibacterium soli
+ptg000209l	1	93399	93399	EXCLUDE	prok:firmicutes	80	Enterococcus gallinarum
+ptg000210l	1	73601	73601	EXCLUDE	prok:b-proteobacteria	97	Alicycliphilus sp. UBA7619
+ptg000211l	1	42489	42489	EXCLUDE	prok:firmicutes	87	Enterococcus thailandicus
+ptg000212l	1	22037	22037	EXCLUDE	prok:CFB group bacteria	91	Leadbetterella byssophila
+ptg000213l	1	65615	65615	EXCLUDE	prok:verrucomicrobia	95	Phragmitibacter flavus
+ptg000214l	1	39928	39928	EXCLUDE	prok:b-proteobacteria	97	Alicycliphilus sp. UBA7619
+ptg000216l	1	50207	50207	EXCLUDE	prok:a-proteobacteria	100	[Ochrobactrum] quorumnocens
+ptg000218l	1	74819	74819	EXCLUDE	prok:a-proteobacteria	78	Brucella cytisi
+ptg000220l	1	78846	78846	EXCLUDE	prok:a-proteobacteria	90	Brucella anthropi
+ptg000221l	1	44603	44603	EXCLUDE	prok:a-proteobacteria	93	Sphingobium sp. 66-54
+ptg000222l	1	29848	29848	EXCLUDE	prok:CFB group bacteria	95	Niabella hibiscisoli
+ptg000223l	1	31654	31654	EXCLUDE	prok:high GC Gram+	79	Leucobacter chironomi
+ptg000224l	1	38631	38631	EXCLUDE	prok:firmicutes	68	Enterococcus villorum
+ptg000225l	1	23847	23847	EXCLUDE	prok:CFB group bacteria	61	Niabella yanshanensis
+ptg000230l	1	68967	68967	EXCLUDE	prok:a-proteobacteria	91	Brucella daejeonensis
+ptg000231l	1	60190	60190	EXCLUDE	prok:a-proteobacteria	94	Brucella cytisi
+ptg000232l	1	49253	49253	EXCLUDE	prok:a-proteobacteria	92	Falsochrobactrum shanghaiense
+ptg000233l	1	45525	45525	EXCLUDE	prok:b-proteobacteria	100	Alicycliphilus sp. UBA7619
+ptg000234l	1	101935	101935	EXCLUDE	prok:a-proteobacteria	95	Paracoccus sphaerophysae
+ptg000235l	1	32073	32073	EXCLUDE	prok:CFB group bacteria	91	Moheibacter lacus
+ptg000236l	1	34122	34122	REVIEW	prok:CFB group bacteria	17	Niabella hibiscisoli
+ptg000238l	1	13966	13966	REVIEW	prok:CFB group bacteria	38	Pedobacter steynii
+ptg000239l	1	53671	53671	EXCLUDE	prok:CFB group bacteria	84	Niabella hibiscisoli
+ptg000240l	1	101734	101734	EXCLUDE	prok:firmicutes	94	Enterococcus hirae
+ptg000241l	1	28651	28651	EXCLUDE	prok:CFB group bacteria	96	Niabella hibiscisoli
+ptg000242l	1	29180	29180	EXCLUDE	prok:CFB group bacteria	56	Ferruginibacter sp.
+ptg000243l	1	35055	35055	EXCLUDE	prok:firmicutes	83	Enterococcus ureasiticus
+ptg000244l	1	28044	28044	REVIEW	prok:firmicutes	12	Lactobacillus jensenii
+ptg000245l	1	45654	45654	EXCLUDE	prok:a-proteobacteria	81	[Ochrobactrum] soli
+ptg000246l	1	41740	41740	EXCLUDE	prok:CFB group bacteria	80	Dyadobacter luticola
+ptg000248l	1	43941	43941	EXCLUDE	prok:a-proteobacteria	86	Paracoccus sphaerophysae
+ptg000250l	1	29986	29986	EXCLUDE	prok:a-proteobacteria	70	Phenylobacterium sp. SCN 70-31
+ptg000251l	1	24517	24517	REVIEW	prok:CFB group bacteria	29	Bernardetia litoralis
+ptg000252l	1	45445	45445	EXCLUDE	prok:a-proteobacteria	96	Paracoccus chinensis
+ptg000253l	1	49753	49753	EXCLUDE	prok:g-proteobacteria	75	Chiayiivirga flava
+ptg000254l	1	80513	80513	EXCLUDE	prok:a-proteobacteria	95	Brucella haematophila
+ptg000255l	1	22251	22251	EXCLUDE	prok:firmicutes	98	Enterococcus thailandicus
+ptg000256l	1	32085	32085	EXCLUDE	prok:CFB group bacteria	93	Niabella yanshanensis
+ptg000258l	1	105959	105959	EXCLUDE	prok:CFB group bacteria	63	Niabella yanshanensis
+ptg000259l	1	44313	44313	REVIEW	prok:CFB group bacteria	42	Cyclobacterium qasimii
+ptg000260l	1	52267	52267	EXCLUDE	prok:verrucomicrobia	82	Phragmitibacter flavus
+ptg000261l	1	35665	35665	EXCLUDE	prok:a-proteobacteria	87	Brucella pseudogrignonensis
+ptg000262l	1	35684	35684	EXCLUDE	prok:CFB group bacteria	77	Dyadobacter luticola
+ptg000263l	1	70732	70732	EXCLUDE	prok:CFB group bacteria	46	Brumimicrobium glaciale
+ptg000264l	1	42709	42709	EXCLUDE	prok:CFB group bacteria	97	Dysgonomonas gadei
+ptg000265l	1	93659	93659	EXCLUDE	prok:a-proteobacteria	75	Paracoccus contaminans
+ptg000266l	1	27937	27937	REVIEW	prok:CFB group bacteria	16	Chitinophaga tropicalis
+ptg000268l	1	42342	42342	EXCLUDE	prok:g-proteobacteria	86	Chiayiivirga flava
+ptg000269l	1	83796	83796	EXCLUDE	prok:a-proteobacteria	70	Brucella cytisi
+ptg000270l	1	34464	34464	EXCLUDE	prok:a-proteobacteria	98	Paracoccus sphaerophysae
+ptg000274l	1	37912	37912	EXCLUDE	prok:a-proteobacteria	98	Croceibacterium xixiisoli
+ptg000275l	1	31773	31773	EXCLUDE	prok:a-proteobacteria	60	Pseudochrobactrum asaccharolyticum
+ptg000276l	1	44380	44380	EXCLUDE	prok:firmicutes	65	Enterococcus faecium
+ptg000280l	1	48634	48634	EXCLUDE	prok:a-proteobacteria	73	Caenibius tardaugens
+ptg000281l	1	68071	68071	EXCLUDE	prok:a-proteobacteria	83	Reyranella aquatilis
+ptg000283l	1	52846	52846	EXCLUDE	prok:g-proteobacteria	43	Steroidobacter cummioxidans
+ptg000284l	1	47596	47596	REVIEW	prok:b-proteobacteria	19	Azohydromonas caseinilytica
+ptg000285l	1	36197	36197	EXCLUDE	prok:g-proteobacteria	66	Steroidobacter agaridevorans
+ptg000286l	1	29185	29185	EXCLUDE	prok:actinobacteria	82	Aquihabitans sp.
+ptg000287l	1	78804	78804	EXCLUDE	prok:CFB group bacteria	50	Brumimicrobium sp.
+ptg000288l	1	27150	27150	EXCLUDE	prok:CFB group bacteria	44	Epilithonimonas caeni
+ptg000289l	1	28676	28676	EXCLUDE	prok:CFB group bacteria	51	Bizionia arctica
+ptg000290l	1	21378	21378	EXCLUDE	prok:a-proteobacteria	100	Phyllobacterium trifolii
+ptg000291l	1	30039	30039	EXCLUDE	prok:CFB group bacteria	90	Moheibacter lacus
+ptg000294l	1	28504	28504	EXCLUDE	prok:CFB group bacteria	59	Niabella hibiscisoli
+ptg000295l	1	58478	58478	EXCLUDE	prok:a-proteobacteria	87	Brucella pecoris
+ptg000296l	1	99460	99460	EXCLUDE	prok:firmicutes	77	Enterococcus phoeniculicola
+ptg000297l	1	61000	61000	EXCLUDE	prok:a-proteobacteria	98	Croceibacterium xixiisoli
+ptg000298l	1	31985	31985	REVIEW	prok:firmicutes	22	Candidatus Lactobacillus pullistercoris
+ptg000299l	1	67715	67715	EXCLUDE	prok:CFB group bacteria	86	Niabella yanshanensis
+ptg000300l	1	91587	91587	EXCLUDE	prok:a-proteobacteria	95	Brucella haematophila
+ptg000304l	1	39566	39566	EXCLUDE	prok:a-proteobacteria	93	Corticibacterium populi
+ptg000306l	1	64524	64524	EXCLUDE	prok:g-proteobacteria	56	Steroidobacter agaridevorans
+ptg000307l	1	37591	37591	EXCLUDE	prok:b-proteobacteria	51	Alicycliphilus sp. UBA7619
+ptg000308l	1	47695	47695	EXCLUDE	prok:a-proteobacteria	100	Paracoccus sphaerophysae
+ptg000310l	1	30436	30436	EXCLUDE	prok:a-proteobacteria	96	Altererythrobacter segetis
+ptg000311l	1	38538	38538	EXCLUDE	prok:bacteria	75	Lacipirellula parvula
+ptg000312l	1	35455	35455	EXCLUDE	prok:CFB group bacteria	90	Niabella hibiscisoli
+ptg000313l	1	38520	38520	EXCLUDE	prok:b-proteobacteria	100	Alicycliphilus sp. UBA7619
+ptg000315l	1	25659	25659	EXCLUDE	prok:a-proteobacteria	85	Polymorphum sp.
+ptg000316l	1	31984	31984	EXCLUDE	prok:g-proteobacteria	94	Chiayiivirga flava
+ptg000317l	1	37545	37545	EXCLUDE	prok:a-proteobacteria	88	Paracoccus sphaerophysae
+ptg000318l	1	63942	63942	EXCLUDE	prok:CFB group bacteria	96	Niabella hibiscisoli
+ptg000319l	1	120006	120006	EXCLUDE	prok:a-proteobacteria	89	Altererythrobacter segetis
+ptg000320l	1	38637	38637	EXCLUDE	prok:a-proteobacteria	98	Brucella oryzae
+ptg000321l	1	23806	23806	REVIEW	prok:firmicutes	29	Streptococcus intermedius
+ptg000322l	1	32069	32069	EXCLUDE	prok:CFB group bacteria	91	Sphingobacterium soli
+ptg000324l	1	46244	46244	REVIEW	prok:CFB group bacteria	12	Pedobacter agri
+ptg000326l	1	22895	22895	REVIEW	prok:CFB group bacteria	30	Sphingobacterium spiritivorum
+ptg000327l	1	50421	50421	EXCLUDE	prok:high GC Gram+	88	Leucobacter muris
+ptg000328l	1	48559	48559	EXCLUDE	prok:CFB group bacteria	64	Niabella ginsengisoli
+ptg000329l	1	66973	66973	EXCLUDE	prok:a-proteobacteria	95	Croceibacterium soli
+ptg000331l	1	44635	44635	EXCLUDE	prok:a-proteobacteria	87	[Ochrobactrum] quorumnocens
+ptg000332l	1	26290	26290	EXCLUDE	prok:g-proteobacteria	73	Chiayiivirga flava
+ptg000333l	1	23807	23807	EXCLUDE	anml:nematodes	100	Parapristionchus giblindavisi
+ptg000334l	1	30822	30822	EXCLUDE	prok:CFB group bacteria	79	Terrimonas ferruginea
+ptg000335l	1	37456	37456	EXCLUDE	prok:g-proteobacteria	62	Chiayiivirga flava
+ptg000336l	1	46947	46947	EXCLUDE	prok:g-proteobacteria	46	Chiayiivirga flava
+ptg000337l	1	59245	59245	EXCLUDE	prok:a-proteobacteria	81	Brucella anthropi
+ptg000339l	1	76087	76087	EXCLUDE	prok:a-proteobacteria	92	[Ochrobactrum] soli
+ptg000340l	1	51327	51327	EXCLUDE	prok:a-proteobacteria	88	[Ochrobactrum] soli
+ptg000341l	1	40558	40558	EXCLUDE	prok:a-proteobacteria	84	Brucella intermedia
+ptg000342l	1	34388	34388	EXCLUDE	prok:actinobacteria	75	Aquihabitans sp.
+ptg000344l	1	20094	20094	EXCLUDE	prok:CFB group bacteria	44	Chryseobacterium carnipullorum
+ptg000345l	1	37098	37098	EXCLUDE	prok:g-proteobacteria	76	Chiayiivirga flava
+ptg000346l	1	39511	39511	EXCLUDE	prok:CFB group bacteria	90	Niabella ginsengisoli
+ptg000347l	1	43796	43796	EXCLUDE	prok:a-proteobacteria	91	Alteraurantiacibacter aestuarii
+ptg000348l	1	61972	61972	EXCLUDE	prok:a-proteobacteria	56	Mesorhizobium hawassense
+ptg000349l	1	37516	37516	EXCLUDE	prok:b-proteobacteria	85	Xenophilus azovorans
+ptg000350l	1	50578	50578	EXCLUDE	prok:CFB group bacteria	67	Niabella hibiscisoli
