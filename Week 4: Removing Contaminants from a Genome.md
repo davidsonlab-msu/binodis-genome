@@ -40,6 +40,13 @@ Which will output:
 /N/project/moczek_cisreg/ob_genome/data
 ```
 
+Lets open a _separate_ terminal window on our laptops, navigate to our Desktop (or wherever you would like the files to be downloaded to, and download the genomes our local computer using this command:
+
+```bash
+scp [IU_USERNAME]@quartz.uits.iu.edu:/N/project/moczek_cisreg/ob_genome/data/obm_v1.fasta .
+scp phidavid@quartz.uits.iu.edu:/N/project/moczek_cisreg/ob_genome/data/obf_v1.fasta .
+```
+
 
 
 
