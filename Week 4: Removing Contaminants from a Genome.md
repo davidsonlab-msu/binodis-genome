@@ -69,7 +69,28 @@ srun -p interactive --pty -c 1 --mem 2G --time=1:00:00 -A r00262 /bin/bash
 First, lets sort our genome assemblies by contig size, such that the largest contig appears first in the assembly and continues in descending size. To do this, lets use the `bbmap` package again, which is located in the programs folder:
 
 ```bash
-/N/project/moczek_cisreg/programs/bbmap/
+/N/project/moczek_cisreg/programs/bbmap/sortbyname.sh -Xmx1g in=obm_clean.fasta out=obm_clean_sort.fasta length descending
+/N/project/moczek_cisreg/programs/bbmap/sortbyname.sh -Xmx1g in=obf_clean.fasta out=obf_clean_sort.fasta length descending
+```
+
+We now have a genome file whose contigs are sorted by size, however, the contig names are not named very nicely at the moment:
+
+```bash
+grep "^>" obf_clean_sort.fasta | head
+```
+
+prints:
+
+```
+>ptg000001l
+>ptg000002l
+>ptg000003l
+>ptg000004l
+>ptg000005l
+>ptg000006l
+```
+
+
 
 
 
