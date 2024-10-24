@@ -108,11 +108,58 @@ We now have two high quality genome assemblies for _O. binodis_ that have been r
 
 Before we leave for the day, lets get the repeat annotation process going as it will take a few days to run. We will discuss this pipeline (EarlGrey) in detail next week, so for now lets simply submit the jobs.
 
+Lets copy the sample script file from the `scripts` folder to our user directory, and then edit its contents to match the batch jobs below using `nano`:
 
+```bash
+cp ../scripts/sample.bash ./obm_earlgrey.bash
+cp ../scripts/sample.bash ./obf_earlgrey.bash
+```
 
+For female, `nano obf_earlgrey.bash` :
+```
+#!/usr/bin/env bash
+#SBATCH -J earlgrey
+#SBATCH --mail-type=END
+#SBATCH --mail-user=[IU_USERNAME]@iu.edu
+#SBATCH -c 32
+#SBATCH --mem 256G
+#SBATCH --time=95:00:00
+#SBATCH -A r00262
 
+module load miniconda
+source activate /N/project/moczek_cisreg/programs/conda_envs/earlgrey/
 
+earlGrey -g ./obf_v1_2.fasta -s obf -o out_obf -t 32 -r arthropoda -d yes
+```
 
+For male, `nano obm_earlgrey.bash` :
+```
+#!/usr/bin/env bash
+#SBATCH -J earlgrey
+#SBATCH --mail-type=END
+#SBATCH --mail-user=[IU_USERNAME]@iu.edu
+#SBATCH -c 32
+#SBATCH --mem 256G
+#SBATCH --time=95:00:00
+#SBATCH -A r00262
+
+module load miniconda
+source activate /N/project/moczek_cisreg/programs/conda_envs/earlgrey/
+
+earlGrey -g ./obm_v1_2.fasta -s obm -o out_obm -t 32 -r arthropoda -d yes
+```
+
+Once we have our batch scripts completed, submit either the male or female job (not both since these are very long analyses):
+
+```bash
+sbatch obm_earlgrey.bash
+```
+
+OR
+
+```bash
+sbatch obf_earlgrey.bash
+```
 
 
 
