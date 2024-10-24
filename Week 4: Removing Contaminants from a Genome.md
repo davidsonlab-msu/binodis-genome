@@ -63,7 +63,6 @@ Let's navigate to our respective user directories so that we can tidy up our gen
 ```bash
 cd ../u_[INITIALS]/
 ls -lh
-srun -p interactive --pty -c 1 --mem 2G --time=1:00:00 -A r00262 /bin/bash
 ```
 
 First, lets sort our genome assemblies by contig size, such that the largest contig appears first in the assembly and continues in descending size. To do this, lets use the `seqkit` package, which is located in the programs folder:
@@ -94,12 +93,21 @@ prints:
 >ptg000013l
 ```
 
+Therefore, let's rename the FASTA heads of our genomes with the prefix "contig_" in ascending order such that the largest contig takes the name "contig_1". We will do this using the `seqtk` package:
+
 ```bash
 ../../programs/seqtk/seqtk rename obf_clean_sort.fasta contig_ > obf_v1_2.fasta
 ../../programs/seqtk/seqtk rename obm_clean_sort.fasta contig_ > obm_v1_2.fasta
 
-grep "^>" obf_clean_sort.fasta | head
+grep "^>" obm_v1_2.fasta | head
 ```
+
+We now have two high quality genome assemblies for _O. binodis_ that have been removed of microbial contaminants and reformated in a sensible, clean way. These new assemblies can be found in the `data` folder with the name ob*_v1_2.fasta. Now, we can begin the annotate our genomes!
+
+## Repeat Annotation Start
+
+Before we leave for the day, lets get the repeat annotation process going as it will take a few days to run. We will discuss this pipeline (EarlGrey) in detail next week, so for now lets simply submit the jobs.
+
 
 
 
