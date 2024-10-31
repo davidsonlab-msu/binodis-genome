@@ -124,10 +124,49 @@ nano ./braker.bash
 ```
 
 ```
+#!/usr/bin/env bash
+#SBATCH -J braker
+#SBATCH --mail-type=END
+#SBATCH --mail-user=email.iu.edu
+#SBATCH -c 16
+#SBATCH --mem 64G
+#SBATCH --time=95:00:00
+#SBATCH -A r00262
 
+module load singularity
 
-singularity exec -B ${PWD}:${PWD} ${BRAKER_SIF} braker.pl --species=obm2 --prot_seq=Otau_proteins.fasta --workingdir=./test_braker --threads 1 --genome=obm2.softmasked.fasta
+export BRAKER_SIF=/N/project/moczek_cisreg/programs/singularity/braker3.sif
+
+singularity exec -B ${PWD}:${PWD} ${BRAKER_SIF} braker.pl --species=obf_braker --prot_seq=Otau_proteins.fasta --workingdir=./braker_output --threads 16 --genome=obf.softmasked.fasta
 ```
+
+and for GALBA:
+```bash
+nano ./galba.bash
+```
+
+```
+#!/usr/bin/env bash
+#SBATCH -J galba
+#SBATCH --mail-type=END
+#SBATCH --mail-user=email.iu.edu
+#SBATCH -c 16
+#SBATCH --mem 64G
+#SBATCH --time=95:00:00
+#SBATCH -A r00262
+
+module load singularity
+
+singularity exec -B ${PWD}:${PWD} /N/project/moczek_cisreg/programs/singularity/galba.sif galba.pl --genome=obf.softmasked.fasta --prot_seq=Otau_proteins.fasta --AUGUSTUS_ab_initio  --species=obf_galba --threads=16 --workingdir=./galba_output
+```
+
+Now submit your jobs, pray to the genome gods, and hope it works!
+
+```bash
+sbatch braker.bash
+sbatch galba.bash
+```
+
 
 
 
