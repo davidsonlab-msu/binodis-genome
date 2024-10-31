@@ -45,6 +45,27 @@ obf_superfamily_div_plot.pdf
 
 For the purposes of genome annotation, perhaps the two most important files are the `obf.softmasked.fasta` and `obf.filteredRepeats.gff`. The *softmasked* genome has the repetitive elements within the genome set to lowercase (a softmask), which can be recognized by gene annotation programs. The `gff` file describes the location of each reptitive element identified within the genome.
 
+Lets quickly preview the contents of these files with the `head` command:
+
+```bash
+head obf.softmasked.fasta
+head obf.filteredRepeats.gff
+```
+
+In addition, we have other fasta files (`obf_combined_library.fasta`, `obf-families.fa.strained`) that describe the sequence of each repetitive element identified. For e.g.:
+
+```bash
+head obf-families.fa.strained
+```
+
+Lastly, EarlyGrey creates a number of summary statistics and figures for us the check out. Lets analyze them now!
+
+```
+obf.summaryPie.pdf
+```
+
+
+
 
 
 # Submitting our genome annotation jobs
