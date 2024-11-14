@@ -58,6 +58,28 @@ for i in *txt; do echo `basename $i .txt` | sed 's/short_summary.specific.insect
 I've gone ahead a filled out our QC Table with these values:
 <img width="741" alt="Screenshot 2024-11-13 at 11 01 01 PM" src="https://github.com/user-attachments/assets/74293a5c-3cd8-4c9b-86da-4f7e27a66b3b">
 
+_Discuss implications of these results_
+Which program worked better? Why is it important to compare BUSCO scores of gene models to BUSCO scores of the entire genome (we did this in Week 3)?
+
+Now, lets assess the structure of the gene models. First, lets remind ourself what a `GTF` file looks like:
+
+```bash
+cd ../gene_models
+head braker_f.gtf
+```
+And now count the number of genes and transcripts in each analysis using `awk`:
+
+```bash
+for i in *gtf; do echo $i; awk -v FS="\t" '{if ($3 == "gene") print}' $i | wc -l ; done
+
+for i in *gtf; do echo $i; awk -v FS="\t" '{if ($3 == "transcript") print}' $i | wc -l ; done
+```
+
+These results are now filled out in the table:
+<img width="737" alt="Screenshot 2024-11-13 at 11 09 34 PM" src="https://github.com/user-attachments/assets/2e66c9fd-3f59-4e5c-b69b-f87e91888dc0">
+
+
+
 
 
 
