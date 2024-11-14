@@ -90,6 +90,7 @@ for i in *gtf; do echo $i; awk -v FS="\t" '{if ($3 == "stop_codon") print}' $i |
 ```
 
 And those results:
+
 <img width="746" alt="Screenshot 2024-11-13 at 11 13 09 PM" src="https://github.com/user-attachments/assets/b6b2d9ab-fb17-4eac-b90c-fe5f6edd37f7">
 
 Interesting... The BRAKER results produced more genes, more transcripts, but _fewer_ introns/gene relative to GALBA. What does this tell us about the potential strengths of each program?
@@ -109,13 +110,51 @@ Beautiful. lets fill in those stats and discuss:
 
 <img width="739" alt="Screenshot 2024-11-13 at 11 18 21 PM" src="https://github.com/user-attachments/assets/70f7ad50-a541-4e5c-a5b1-950279b132b5">
 
+# BLASTing and Synteny
+
+To end today, submit some `batch` jobs that aligns our new _O. binodis_ gene models to the _O. taurus_ gene models. This will allows us to do a few things: 1) Assess how representative our new gene models are of a proteome (QC); 2) Provide putative IDs to each of of gene models; 3) prepare the neccessray results files for a synteny analysis (next week).
+
+Lets navigate to our user directory, copy the necessary files, create a new batch script. 
+
+```bash
+cd ../u_[INITIALS]
+cp ../results/gene_models/*aa .
+cp ../scripts/sample.bash ./blast.bash
+nano /blast.bash
+```
+
+Once in the text editor, lets edit to make the following script (substituting your email).:
+
+```
+#!/usr/bin/env bash
+#SBATCH -J ob_blast
+#SBATCH --mail-type=END
+#SBATCH --mail-user=youremail@iu.edu
+#SBATCH -c 8
+#SBATCH --mem 8G
+#SBATCH --time=24:00:00
+#SBATCH -A r00262
+
+module load blast
+
+makeblastdb -in Otau.aa -dbtype prot -title ot -out ot
+
+blastp -db ot -num_threads 8 -max_target_seqs 5 -evalue 1e-10 -query braker_f.aa -outfmt 6 > braker_f.blast
+#runs in about 15 minutes
+
+blastp -db ot -num_threads 8 -max_target_seqs 5 -evalue 1e-10 -query braker_m.aa -outfmt 6 > braker_m.blast
+blastp -db ot -num_threads 8 -max_target_seqs 5 -evalue 1e-10 -query galba_f.aa -outfmt 6 > galba_f.blast
+blastp -db ot -num_threads 8 -max_target_seqs 5 -evalue 1e-10 -query galba_m.aa -outfmt 6 > galba_m.blast
 
 
+makeblastdb -in galba_m.aa -dbtype prot -title ob_galba_m -out ob_galba_m
 
+blastp -db ob_galba_m -num_threads 8 -max_target_seqs 5 -evalue 1e-10 -query galba_f.aa -outfmt 6 > ob_mf.blast
+```
+The final two lines create a BLAST database for the male genome, and BLASTs the female gene models to it. This will ultimately allow us to get an idea of the structural differences between the male and female genome!
 
+Submit!
 
-
-
-
-
-
+```bash
+sbatch blast.bash
+```
