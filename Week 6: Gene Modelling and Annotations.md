@@ -49,3 +49,19 @@ Otau.codingseq
 
 Here the `*aa` files are the protein coding sequences, the `*codingseq` files are the nucleotide sequences, and the `*gtf` files are the coordinates for various gene features. 
 
+As mentioned in the PPT, we would now like to compute various quality metrics of the gene models to gain an idea of how successful our runs were. For starters, I've gone ahead and computed the BUSCO scores for the gene models as it takes a little bit of time to run. The outputs can be found in the `BUSCO` directory of our results folder. Lets view these results in the terminal now with this for loop. 
+
+```bash
+cd BUSCO
+for i in *txt; do echo `basename $i .txt` | sed 's/short_summary.specific.insecta_odb10.//g'; cat $i; done
+```
+I've gone ahead a filled out our QC Table with these values:
+<img width="741" alt="Screenshot 2024-11-13 at 11 01 01 PM" src="https://github.com/user-attachments/assets/74293a5c-3cd8-4c9b-86da-4f7e27a66b3b">
+
+
+
+
+
+
+
+
