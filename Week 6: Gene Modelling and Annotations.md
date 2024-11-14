@@ -76,7 +76,39 @@ for i in *gtf; do echo $i; awk -v FS="\t" '{if ($3 == "transcript") print}' $i |
 ```
 
 These results are now filled out in the table:
-<img width="737" alt="Screenshot 2024-11-13 at 11 09 34 PM" src="https://github.com/user-attachments/assets/2e66c9fd-3f59-4e5c-b69b-f87e91888dc0">
+
+<img width="748" alt="Screenshot 2024-11-13 at 11 10 36 PM" src="https://github.com/user-attachments/assets/003d12d5-9735-4a38-bd03-040039ed6401">
+
+What do these results tell us about the performace of each program?
+
+Now lets count introns and stop codons:
+
+```bash
+for i in *gtf; do echo $i; awk -v FS="\t" '{if ($3 == "intron") print}' $i | wc -l ; done
+
+for i in *gtf; do echo $i; awk -v FS="\t" '{if ($3 == "stop_codon") print}' $i | wc -l ; done
+```
+
+And those results:
+<img width="746" alt="Screenshot 2024-11-13 at 11 13 09 PM" src="https://github.com/user-attachments/assets/b6b2d9ab-fb17-4eac-b90c-fe5f6edd37f7">
+
+Interesting... The BRAKER results produced more genes, more transcripts, but _fewer_ introns/gene relative to GALBA. What does this tell us about the potential strengths of each program?
+
+To calculate the average and median length of each transcript model, lets mix it up and do some `python`. We will need to  navigate to these scripts, start an interactive node, load python, and run it.
+
+```bash
+cd /N/project/moczek_cisreg/programs/scripts
+
+srun -p interactive --pty -c 1 --mem 2G -A r00262 --time=4:00:00 /bin/bash
+
+module load python
+
+for i in ../../ob_genome/results/gene_models/*codingseq; do echo $i; python ./len.py $i | cut -f2 | ./summary.sh; done
+```
+Beautiful. lets fill in those stats and discuss: 
+
+<img width="739" alt="Screenshot 2024-11-13 at 11 18 21 PM" src="https://github.com/user-attachments/assets/70f7ad50-a541-4e5c-a5b1-950279b132b5">
+
 
 
 
