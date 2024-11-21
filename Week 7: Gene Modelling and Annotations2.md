@@ -49,7 +49,84 @@ grep "^>" ../gene_models/braker_f.aa | wc -l
 
 Interesting... 21423 of 23448 genes had significant hits to O. taurus. What may account the ~2000 genes with no hits?
 
-The remaining files in the directory are `galba_mf.blast` and 
+The remaining files in the directory are `galba_mf.blast` and `obf_ot.blast`, which are all-to-all blast hits that will come into play with the synteny analsyes (more on this later). The last file `Otau_best_hits.txt` is a set of gene descriptions of the _O. taurus_ gene models, which we will use to describe the _O.binodis_ gene models based on significant blast hits. Lets preview this file:
+
+```bash
+Otau_ID	OT2_ID	OT2_pident	OT2_evalue	OT2_description	ecdy_ID	ecdy_pident	ecdy_evalue	ecdy_description
+jg6653.t1	XP_022920069.1	100	2.74e-117	uncharacterized protein LOC111428662	UniRef90_N6UAK1	33.75	4.5e-23	SAM domain-containing protein (Fragment)
+jg6009.t1	NA	NA	NA	NA	NA	NA	NA	NA
+jg5736.t1	XP_022905354.1	98.235	6.61e-113	cuticle protein 7-like	UniRef90_A0A1I8PDP8	57.669	7.55e-45	Uncharacterized protein
+jg5894.t1	XP_022909302.1	100	0	TFIIH basal transcription factor complex helicase XPD subunit	UniRef90_D6WI90	90.646	0	General transcription and DNA repair factor IIH helicase subunit XPD
+jg6289.t1	XP_022902988.1	38.272	2.85e-08	paramyosin isoform X3	NA	NA	NA	NA
+jg5450.t1	NA	NA	NA	NA	UniRef90_A0A5N4B0J9	32.192	5.94e-12	Uncharacterized protein
+jg5706.t1	XP_022917520.1	100	0	tether containing UBX domain for GLUT4	UniRef90_A0A0T6B6A4	58.608	0	Ubiquitin
+jg5449.t1	NA	NA	NA	NA	UniRef90_A0A5N4B0J9	30.556	1.34e-12	Uncharacterized protein
+jg5650.t1	XP_022902067.1	100	0	BTB/POZ domain-containing protein kctd15, partial	UniRef90_A0A5N4A5I0	81.419	7.94e-176	BTB domain-containing protein
+```
+
+Neat. Lets open a separate `Terminal` window on you laptop, create directory on your desktop called ob_anno and mcscanx (for later). Then navigate into `ob_genome` and copy the gene models from Quartz into this directory, along with O. taurus best hits text file. Your commands may look slightly different diepending on your computer system. 
+
+```
+cd ~/Desktop
+mkdir ob_anno mcscanx
+cd ob_anno
+scp -r phidavid@quartz.uits.iu.edu:/N/project/moczek_cisreg/ob_genome/results/BLAST/ .
+```
+
+Lets open R Studio, and follow along with the proceedng code to annotate our genes from the `braker` annotations. 
+
+```R
+install.packages("tidyverse")
+library(tidyverse)
+
+#to load in the files, adjust your path accordingly or simply use the Import Dataset function within R
+braker_f <- 
+  read.delim("~/Desktop/Research/binodis_genome/ob_anno/BLAST/braker_f.blast",
+             header=FALSE)
+braker_m <- 
+  read.delim("~/Desktop/Research/binodis_genome/ob_anno/BLAST/braker_m.blast", 
+             header=FALSE)
+Otau_best_hits <- 
+  read.delim("~/Desktop/Research/binodis_genome/ob_anno/BLAST/Otau_best_hits.txt")
+
+colnames(braker_f) <- c("obf_ID", "Otau_ID", "pident", "aln_len", "num_mismatch", 
+                        "num_gaps", "ob_start", "ob_end", "ot_start", "ot_end",
+                        "eval", "bit")
+
+colnames(braker_m) <- c("obm_ID", "Otau_ID", "pident", "aln_len", "num_mismatch", 
+                        "num_gaps", "ob_start", "ob_end", "ot_start", "ot_end",
+                        "eval", "bit")
+#female models
+braker_f_anno <- left_join(braker_f,Otau_best_hits, by = "Otau_ID")
+braker_f_anno_best <- braker_f_anno %>% 
+  group_by(obf_ID) %>% 
+  top_n(-1, eval)
+
+braker_f_anno_best <- braker_f_anno %>% 
+  group_by(obf_ID) %>% 
+  top_n(-1, eval) %>% 
+  slice_max(pident)
+
+#male_models
+braker_m_anno <- left_join(braker_m,Otau_best_hits, by = "Otau_ID")
+
+braker_m_anno_best <- braker_m_anno %>% 
+  group_by(obm_ID) %>% 
+  top_n(-1, eval) %>% 
+  slice_max(pident)
+
+#save tables
+write.table(braker_f_anno_best, file = "~/Desktop/ob_anno/braker_f_anno_best.txt", 
+            sep = "\t", row.names = FALSE, quote = FALSE)
+
+write.table(braker_m_anno_best, file = "~/Desktop/ob_anno/braker_m_anno_best.txt", 
+            sep = "\t", row.names = FALSE, quote = FALSE)
+```
+
+
+
+
+
 
 
 
