@@ -154,16 +154,44 @@ cp ../results/gene_models/Otau3.gtf .
 And now lets convert them to the format mentioned in Step 2 above: chr (small initials), gene name, start, end:
 
 ```bash
+#galba_female
+awk -v OFS="\t" -v FS="\t" '{if ($3 == "transcript") print $1,$4,$5,$9}' galba_f.gtf | sed 's/contig_/ob/g' | awk -v OFS="\t" -v FS="\t" '{print $1, $4, $2, $3}' > galba_f.gff
 
-
+#galba_male
+awk -v OFS="\t" -v FS="\t" '{if ($3 == "transcript") print $1,$4,$5,$9}' galba_m.gtf | sed 's/contig/mb/g' | awk -v OFS="\t" -v FS="\t" '{print $1, $4, $2, $3}' | sed 's/\tg/\tmg/g' > galba_m.gff
 
 #Otaurus
 awk -v OFS="\t" -v FS="\t" '{if ($3 == "transcript") print $1,$4,$5,$9}' Otau3.gtf | sed 's/transcript_id "//g' | sed 's/"\;.*//g' | sed 's/Schr/ot/g' | sed 's/chr/ot/g' | sed 's/ScKx7SY_/ot/g' | awk -v OFS="\t" -v FS="\t" '{print $1,$4,$2,$3}' > ot3.gff
 ```
 
+and preview them to double check:
 
+```bash
+head *gff
+```
 
+And now combine to create the appropriate GFFs for each comparison.
 
+```bash
+cat galba_m.gff galba_f.gff > galba_mf.gff
+cat galba_f.gff ot3.gff > obf_ot.gff
+```
+
+We now have both the `GFF` and `blast` files for each comparison we are interested in: "ob_f vs ot" and "ob_f vs ob_m". Finally, we are ready to run MCScanX for each comparison. 
+
+```bash
+../../programs/MCScanX/MCScanX ./obf_ot
+../../programs/MCScanX/MCScanX ./galba_mf
+```
+
+Success! Lets view the files:
+
+```bash
+ls -lh obf_ot*
+ls -lh galba_mf*
+```
+
+Lets now return to our **second terminal window on our laptop** and download these files to our mcscanx folder.
 
 
 
