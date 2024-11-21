@@ -123,6 +123,21 @@ write.table(braker_m_anno_best, file = "~/Desktop/ob_anno/braker_m_anno_best.txt
             sep = "\t", row.names = FALSE, quote = FALSE)
 ```
 
+Voila! We now have annotated gene models. 
+
+Lets hop back into our Quartz session and prepare to run the whole genome synteny analyses. To run the synteny analsyes, we will use a program called MCScanX, which requires two files: 
+1) All-to-all BLAST results from your species of interest (I did this ahead of time to save time, but this is simply a BLASTP search like we did last week, except using a combined amino acid file of all species, e.g. `cat galba_f.aa Otau.aa > obf_ot.blast`.
+2) A simplified GFF that includes the chromosome, gene name, start, and end of each gene for each species of interest. We will create these below.
+
+First, navigate to your user directory and copy all-to-all BLAST results 
+
+```bash
+cd /N/project/moczek_cisreg/ob_genome/u_[INITIALS]
+cp ../results/BLAST/obf_ot.blast .
+cp ../results/BLAST/galba_mf.blast .
+```
+
+The `obf_ot.blast` file is the all-to-all results of the `galba_f.aa` protein models with the `Otau
 
 
 
