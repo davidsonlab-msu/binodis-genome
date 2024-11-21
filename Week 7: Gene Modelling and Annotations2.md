@@ -193,6 +193,15 @@ ls -lh galba_mf*
 
 Lets now return to our **second terminal window on our laptop** and download these files to our mcscanx folder.
 
+## LAPTOP TERMINAL
+```bash
+noglob scp -r phidavid@quartz.uits.iu.edu:/N/project/moczek_cisreg/ob_genome/u_[INITIALS]/galba_mf.* ./mcscanx
+noglob scp -r phidavid@quartz.uits.iu.edu:/N/project/moczek_cisreg/ob_genome/u_pd/obf_ot.* ./mcscanx
+```
+
+Almost there. Lets go to https://synvisio.github.io/ and visualize our results together!
+
+
 
 
 
