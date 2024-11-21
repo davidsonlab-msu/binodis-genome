@@ -137,7 +137,30 @@ cp ../results/BLAST/obf_ot.blast .
 cp ../results/BLAST/galba_mf.blast .
 ```
 
-The `obf_ot.blast` file is the all-to-all results of the `galba_f.aa` protein models with the `Otau
+The `obf_ot.blast` file is the all-to-all results of the `galba_f.aa` protein models with the `Otau.aa` protein models. AKA we are finding synteny between O binodis female genome (GALBA models) and the Otaurus genome. The `galba_mf.blast` file is the all-to-all results between the male and female protein models. AKA finding synteny between male and female genomes using the GALBA models. You will notice that I added an "m" to the male gene models to distinguish from the female models (neccessary for the synteny analysis).
+
+```bash
+head galba_mf.blast
+```
+
+Lets also copy over GTF files for the male and female binodis GALBA annotations and the Otaurus models to convert to the simplified GFFs for MCSCanX. 
+
+```bash
+cp ../results/gene_models/galba_f.gtf .
+cp ../results/gene_models/galba_m.gtf .
+cp ../results/gene_models/Otau3.gtf .
+```
+
+And now lets convert them to the format mentioned in Step 2 above: chr (small initials), gene name, start, end:
+
+```bash
+
+
+
+#Otaurus
+awk -v OFS="\t" -v FS="\t" '{if ($3 == "transcript") print $1,$4,$5,$9}' Otau3.gtf | sed 's/transcript_id "//g' | sed 's/"\;.*//g' | sed 's/Schr/ot/g' | sed 's/chr/ot/g' | sed 's/ScKx7SY_/ot/g' | awk -v OFS="\t" -v FS="\t" '{print $1,$4,$2,$3}' > ot3.gff
+```
+
 
 
 
